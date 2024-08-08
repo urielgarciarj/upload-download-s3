@@ -18,13 +18,13 @@ func main() {
 }
 
 func UploadObject() {
-	// Cargar las variables de entorno
+	// Create environment variables
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatalf("Error loading .env file")
 	}
 
-	// Crear la configuración de AWS con la región explícita
+	// Creates the configuration of AWS with the explicit region
 	cfg, err := config.LoadDefaultConfig(context.TODO(),
 		config.WithRegion(os.Getenv("AWS_REGION")),
 	)
@@ -43,7 +43,7 @@ func UploadObject() {
 		log.Printf("error: %v", err)
 		return
 	}
-	defer f.Close() // Cerrar el archivo después de la operación
+	defer f.Close() // Closing the file after the operation is complete
 
 	// Upload to s3
 	result, err := uploader.Upload(context.TODO(), &s3.PutObjectInput{
