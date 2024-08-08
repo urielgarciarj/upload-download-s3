@@ -16,9 +16,9 @@ import (
 
 func UploadFiles() {
 	// Create environment variables
-	err := godotenv.Load(".env")
+	err := godotenv.Load("cmd/.env")
 	if err != nil {
-		log.Fatalf("Error loading .env file")
+		log.Fatalf("Error loading .env file %v", err)
 	}
 
 	// Creates the configuration of AWS with the explicit region

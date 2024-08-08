@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	cmd.UploadFiles()
-	// UploadFiles()
+	// cmd.UploadFiles()
+	cmd.DownloadFiles()
 }
